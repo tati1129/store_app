@@ -1,0 +1,23 @@
+.container{
+    width: 800px;
+    min-height: 100vh;
+  display: flex;
+  
+  /* flex-wrap: wrap; */
+}
+
+.leftAside {
+  background: rgb(246, 240, 242);
+  color: white;
+  padding: 1rem;
+}
+.navItems {
+  display: flex;
+  flex-direction: column;
+}
+.catalogInfo{
+  flex: 1;       
+  padding: 20px;
+display: flex;
+flex-direction: column;
+}

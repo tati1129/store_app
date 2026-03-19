@@ -1,0 +1,18 @@
+.link {
+  color: #d9d9d9;
+}
+.active {
+  color: #016239;
+}
+.navBar {
+  background-color: #121212;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  position: sticky;
+  top: 0;
+}

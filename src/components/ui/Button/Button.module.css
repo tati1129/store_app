@@ -1,0 +1,15 @@
+.button{
+    border: none;
+    border-radius: 0.4rem;
+    margin: 0.4rem;
+    padding: 0.6rem 1rem;
+}
+.danger{
+    background-color: rgb(222, 84, 84);
+}
+.primary{
+    background-color: lightblue;
+}
+.secondary{
+    border: gray solid 1px;
+}
