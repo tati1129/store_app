@@ -1,4 +1,4 @@
-import { data, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import type User from "../../types/User";
 import { useEffect, useState } from "react";
 import axios from "axios";
