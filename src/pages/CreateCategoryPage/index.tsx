@@ -1,6 +1,7 @@
 import s from "./CreateCategoryPage.module.css";
 import axios, { AxiosError } from "axios";
 import { Formik, Form, Field } from "formik";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import * as Yup from "yup";
 
@@ -17,15 +18,8 @@ interface CategoryValues {
   image: string;
 }
 
-async function fetchCreateCategory(values: CategoryValues) {
-  const { data, status } = await axios.post(
-    "https://api.escuelajs.co/api/v1/categories/",
-    values,
-  );
-  console.log(data, status);
-}
-
 const CreateCategoryPage = () => {
+  const navigate = useNavigate();
   const [newCategory, setNewCategory] = useState<any>(null);
   const initialValues: CategoryValues = {
     name: "",
@@ -38,7 +32,7 @@ const CreateCategoryPage = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={CreateCategorySchema}
-        onSubmit={async (values, {setSubmitting }) => {
+        onSubmit={async (values, { setSubmitting }) => {
           try {
             const { data, status } = await axios.post(
               "https://api.escuelajs.co/api/v1/categories/",
@@ -46,7 +40,9 @@ const CreateCategoryPage = () => {
             );
 
             console.log(data);
-
+            if (status === 201) {
+              navigate("/categories");
+            }
             // сохраняем новую категорию
             setNewCategory(data);
             // actions.resetForm();
@@ -60,7 +56,7 @@ const CreateCategoryPage = () => {
                 alert("This name of category already exsist");
               }
             }
-            
+
             console.error(error);
           } finally {
             setSubmitting(false);
