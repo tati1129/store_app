@@ -16,6 +16,8 @@
   flex-direction: column;
 }
 .catalogInfo{
+  /* display: flex;
+  flex-wrap: wrap; */
   flex: 1;       
   padding: 20px;
 display: flex;

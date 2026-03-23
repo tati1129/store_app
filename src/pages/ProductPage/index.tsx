@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import type Product from "../../types/Product";
+// import s from "./ProductPage.module.css"
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -18,6 +19,7 @@ export default function ProductPage() {
     fetchProduct();
   }, [id]);
   return (
+    
     <div>
       <h1>{product?.title}</h1>
       <img src={product?.images[0]} alt={product?.title} />

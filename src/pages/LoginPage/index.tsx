@@ -11,6 +11,8 @@ async function fetchLogin(values: LoginValues){
 // const res = await axios.post("https://api.escuelajs.co/api/v1/users", values)
 const {data, status} = await axios.post(LOGIN_URL, values);
 console.log(data,status);
+const {access_token} = data;
+localStorage.setItem("access_tolen", access_token)
 }
 
 export const LoginPage = () => {

@@ -4,6 +4,7 @@ export default interface Product {
   title: string;
   slug: string;
   price: number;
+  quantity?: number;
   description: string;
   category: Category;
   images:string[];

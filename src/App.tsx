@@ -19,13 +19,19 @@ import ProductList from "./components/ProductList";
 import CategoryList from "./components/CategoryList";
 import ProductPage from "./pages/ProductPage";
 import CategoryPage from "./pages/CategoryPage";
-import AddCategory from "./pages/AddCategoryPage";
+import { AuthProvider } from "./providers/AuthProvider";
+import CreateCategoryPage from "./pages/CreateCategoryPage";
+import BasketPage from "./pages/BasketPage";
+import { BasketProvider } from "./providers/BasketProvider";
+
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
+      <AuthProvider>
+        <BasketProvider>
+          <Routes>
           <Route path="/" element={<MainLayouts />}>
             <Route index element={<Home />} />
             <Route path="/counter" element={<Counter />} />
@@ -47,16 +53,20 @@ function App() {
               <Route path="/catalog/products" element={<ProductList />} />
               <Route path="/catalog/categories" element={<CategoryList />} />
               <Route path="/catalog/products/:id" element={<ProductPage />} />
-              <Route path="/catalog/categories/create" element={<AddCategory />} />
+              <Route path="/catalog/categories/create" element={<CreateCategoryPage />} />
               {/* <Route path="/catalog/products/create" element={< />} /> */}
               <Route
                 path="/catalog/categories/:id"
                 element={<CategoryPage />}
               />
             </Route>
+            <Route path="/basket" element={<BasketPage/>}></Route>
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
+        </BasketProvider>
+      </AuthProvider>
+      
       </BrowserRouter>
     </>
   );
